@@ -12,7 +12,7 @@ files="$OUT/game.wasm.o ${ODIN_ROOT}/vendor/raylib/wasm/libraylib.a ${ODIN_ROOT}
 
 flags="-sUSE_GLFW=3 -sWASM_BIGINT -sWARN_ON_UNDEFINED_SYMBOLS=0 -sASSERTIONS --shell-file src/wasm/index_template.html --preload-file assets"
 
-emcc -o $OUT/index.html $files $flags
+emcc -sEXPORTED_RUNTIME_METHODS=HEAPF32 -o $OUT/index.html $files $flags
 
 rm $OUT/game.wasm.o
 
